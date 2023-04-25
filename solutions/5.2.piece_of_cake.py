@@ -20,8 +20,17 @@ def get_recipe_price(prices, optionals=None, **kwargs):
 
     total_sum = 0
 
-    for ingredient, quantity in kwargs.items():
-        if ingredient not in optionals:
-            total_sum += (prices[ingredient] * (quantity / 100))
+    total_sum += sum((prices[ingredient] * (quantity / 100)) for ingredient, quantity in kwargs.items() if
+                     ingredient not in optionals)
 
     return int(total_sum)
+
+
+def main():
+    print(get_recipe_price({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100))
+    print(get_recipe_price({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300))
+    print(get_recipe_price({}))
+
+
+if __name__ == "__main__":
+    main()
