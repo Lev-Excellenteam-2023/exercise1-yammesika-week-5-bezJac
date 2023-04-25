@@ -1,7 +1,8 @@
 import math
+from typing import List
 
 
-def full_names(first_names, last_names, min_length=-math.inf):
+def full_names(first_names: List[str], last_names: List[str], min_length=-math.inf) -> List[str]:
     """
     Return a list of full names created by joining each first name in the first_names list with
     each last name in the last_names list, capitalizing the first letters of each name, and
@@ -21,3 +22,15 @@ def full_names(first_names, last_names, min_length=-math.inf):
 
     length_check = lambda name: len(name) >= min_length
     return list(filter(length_check, full_list))
+
+
+def main():
+    # example for use of full_names() on a given lists of first and last names.
+    first_names = ['avi', 'moshe', 'yaakov']
+    last_names = ['cohen', 'levi', 'mizrahi']
+    print(full_names(first_names, last_names, 10))
+    print(full_names(first_names, last_names))
+
+
+if __name__ == "__main__":
+    main()

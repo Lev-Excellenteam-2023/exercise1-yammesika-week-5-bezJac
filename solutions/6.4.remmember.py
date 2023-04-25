@@ -1,7 +1,7 @@
 from PIL import Image
 
 
-def decode_image(image_path):
+def decode_image(image_path:str)->():
     """
         Decodes a binary message hidden in an image.
 
@@ -28,3 +28,12 @@ def decode_image(image_path):
     decoded_message = "".join(
         [chr(row) for col in range(columns) for row in range(rows) if image.getpixel((col, row)) == 1])
     return decoded_message
+
+
+def main():
+    path = input("please enter the image path:")
+    decode_image(path)
+
+
+if __name__ == "__main__":
+    main()

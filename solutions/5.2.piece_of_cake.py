@@ -1,4 +1,7 @@
-def get_recipe_price(prices, optionals=None, **kwargs):
+from typing import Dict
+
+
+def get_recipe_price(prices: Dict[str, int], optionals=None, **kwargs):
     """
     Calculate the total cost of a recipe based on the ingredient prices and quantities specified.
 
@@ -27,6 +30,7 @@ def get_recipe_price(prices, optionals=None, **kwargs):
 
 
 def main():
+    # example run of get_recipe_price on a given set of data
     print(get_recipe_price({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100))
     print(get_recipe_price({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300))
     print(get_recipe_price({}))
