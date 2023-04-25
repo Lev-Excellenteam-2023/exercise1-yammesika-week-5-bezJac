@@ -2,7 +2,7 @@ import datetime
 import random
 
 
-def generate_random_date(start_date, end_date):
+def generate_random_date(start_date: datetime, end_date: datetime) -> datetime:
     """
         Generate a random date between two given dates.
 
